@@ -6,24 +6,26 @@
 
 "use strict";
 
-((core) =>
+
+
+
+
+(function()
 {
     function displayHome()
     {
 
-       $("button").on("mouseover", function()
+       $("h1").on("click", function()
       {
-        console.log("mouseover j query button!!!");
+        console.log("clicked j query h1!!!");
       });
 
       let button=  document.querySelectorAll("button")[0];
 
-      button.addEventListener("click", function()
+      h1.addEventListener("click", function()
       {
-        console.log("clicked the button JS!!!");
-        
+        console.log("clicked the button!!!");
       })
-      console.log(button);   
      
         let paragraphOneText =
           "This is a simple site to demonstrate DOM Manipulation for ICE 1";
@@ -118,7 +120,7 @@
         sendButton.addEventListener("click", function(event){
             //event.preventDefault();
             
-            let contact = new core.Contact(fullName.value, contactNumber.value, emailAddress.value);
+            let contact = new Contact(fullName.value, contactNumber.value, emailAddress.value);
 
             if(contact.serialize())
             {
@@ -140,7 +142,7 @@
         {
           let contactData = localStorage.getItem((index + 1).toString());
 
-          let contact = new core.Contact();
+          let contact = new Contact();
           contact.deserialize(contactData);
 
           data += `<tr>
@@ -187,6 +189,4 @@
 
     window.addEventListener("load", Start);
 
-    core.Start = Start;
-
-})(core || (core={}));
+})();
