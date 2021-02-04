@@ -157,18 +157,13 @@
 
         contactList.innerHTML = data;
 
-        // TODO - Need to create an edit page
         $("button.edit").on("click", function(){
           console.log($(this).val());
         });
 
-        // TODO - Need this fix this
         $("button.delete").on("click", function(){
-          if(confirm("Are you sure?")){
-            localStorage.removeItem($(this).val());
-            location.href = "contact-list.html"; //refresh the page
-          }
-          
+          localStorage.removeItem($(this).val());
+          location.href = "contact-list.html"; //refresh the page
         });
 
       }
