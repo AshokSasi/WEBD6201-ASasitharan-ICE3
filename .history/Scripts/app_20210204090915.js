@@ -81,7 +81,7 @@
 
     function displayContact()
     {
-     let messageArea = $("#messageArea").hide();
+      $("#messageArea").hide();
 
         // form validation
         $("#fullName").on("blur", function(){
@@ -90,12 +90,12 @@
           {
              $(this).trigger("focus").trigger("select");
               
-             messageArea.show().addClass("alert alert-danger").text("Please enter an appropriate Name");
+              $("#messageArea").show("fast").addClass("alert alert-danger").text("Please enter an appropriate Name");
           }
           else
           {
-            messageArea.removeAttr("class").hide(); 
-          
+            $("#messageArea").removeAttr("class"); 
+            $("#messageArea").hide("slow");
           }
 
         });

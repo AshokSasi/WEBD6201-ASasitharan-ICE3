@@ -81,21 +81,21 @@
 
     function displayContact()
     {
-     let messageArea = $("#messageArea").hide();
+      $("#messageArea").hide();
 
         // form validation
         $("#fullName").on("blur", function(){
-      
-          if($(this).val().length < 2)
+         console.log($(this).val());
+          if($("#fullName").val().length < 2)
           {
-             $(this).trigger("focus").trigger("select");
+              $("#fullName").trigger("focus").trigger("select");
               
-             messageArea.show().addClass("alert alert-danger").text("Please enter an appropriate Name");
+              $("#messageArea").show().addClass("alert alert-danger").text("Please enter an appropriate Name");
           }
           else
           {
-            messageArea.removeAttr("class").hide(); 
-          
+            $("#messageArea").removeAttr("class"); 
+            $("#messageArea").hide();
           }
 
         });
