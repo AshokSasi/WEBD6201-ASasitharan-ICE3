@@ -100,25 +100,12 @@
 
         });
    
-    
-        $("#sendButton").on("click", (event)=>{
-          if($("#subscribeCheckbox")[0].checked)
-          {
-              let contact = new core.Contact(
-                fullName.value,
-                contactNumber.value,
-                emailAddress.value
-              );
 
-              if (contact.serialize()) {
-                localStorage.setItem(
-                  (localStorage.length + 1).toString(),
-                  contact.serialize()
-                );
-              }
-          }
-           //event.preventDefault();
-           
+        $("#sendButton").on("click", (event)=>{
+           event.preventDefault();
+            $("#subscribeCheckbox").on("change", function(){
+                console.log("checkbox checked");
+            });
           //  let contact = new core.Contact(fullName.value, contactNumber.value, emailAddress.value);
 
           //  if(contact.serialize())

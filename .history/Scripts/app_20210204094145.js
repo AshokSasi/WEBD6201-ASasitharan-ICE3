@@ -102,7 +102,7 @@
    
     
         $("#sendButton").on("click", (event)=>{
-          if($("#subscribeCheckbox")[0].checked)
+          if($("#subscribeCheckbox").checked)
           {
               let contact = new core.Contact(
                 fullName.value,
