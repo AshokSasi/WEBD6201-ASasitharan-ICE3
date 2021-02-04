@@ -81,41 +81,41 @@
 
     function displayContact()
     {
+
       $("#messageArea").hide();
+        
 
         // form validation
-        $("#fullName").on("blur", ()=>{
+       let fullName = document.getElementById("fullName");
+        fullName.addEventListener("blur", function() {
+            if(fullName.value.length < 2)
+            {
+                fullName.focus();
+                fullName.select();
 
-         
-          if($("#fullName").val().length < 2)
-          {
-              $("#fullName").trigger("focus");
-              $("#fullName").trigger("select");
-
-              $("#messageArea").show();
-              $("#messageArea").addClass("alert alert-danger");
-              $("#messageArea").text("Please enter an appropriate Name");
-          }
-          else
-          {
-            $("#messageArea").removeAttr("class"); 
-            $("#messageArea").hide();
-          }
-
-        });
-   
-
-        $("#sendButton").on("click", ()=>{
-           //event.preventDefault();
+                $("#messageArea").show();
+                $("#messageArea").addClass("alert alert-danger");
+                $("#messageArea").text("Please enter an appropriate Name");
             
-           let contact = new core.Contact(fullName.value, contactNumber.value, emailAddress.value);
+            }
+            else
+            {
+              $("#messageArea").removeAttribute("class"); 
+              $("#messageArea").hide();
+            }
+        });
 
-           if(contact.serialize())
-           {
-             localStorage.setItem((localStorage.length + 1).toString(), contact.serialize());
-           }
+        let sendButton = document.getElementById("sendButton");
+        sendButton.addEventListener("click", function(event){
+            //event.preventDefault();
+            
+            let contact = new core.Contact(fullName.value, contactNumber.value, emailAddress.value);
 
-
+            if(contact.serialize())
+            {
+              localStorage.setItem((localStorage.length + 1).toString(), contact.serialize());
+            }
+           
         });
     }
 

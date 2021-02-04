@@ -87,7 +87,7 @@
         $("#fullName").on("blur", ()=>{
 
          
-          if($("#fullName").val().length < 2)
+          if(fullName.value.length < 2)
           {
               $("#fullName").trigger("focus");
               $("#fullName").trigger("select");
@@ -105,17 +105,17 @@
         });
    
 
-        $("#sendButton").on("click", ()=>{
-           //event.preventDefault();
+        let sendButton = document.getElementById("sendButton");
+        sendButton.addEventListener("click", function(event){
+            //event.preventDefault();
             
-           let contact = new core.Contact(fullName.value, contactNumber.value, emailAddress.value);
+            let contact = new core.Contact(fullName.value, contactNumber.value, emailAddress.value);
 
-           if(contact.serialize())
-           {
-             localStorage.setItem((localStorage.length + 1).toString(), contact.serialize());
-           }
-
-
+            if(contact.serialize())
+            {
+              localStorage.setItem((localStorage.length + 1).toString(), contact.serialize());
+            }
+           
         });
     }
 
